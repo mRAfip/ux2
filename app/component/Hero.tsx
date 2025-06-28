@@ -1,73 +1,94 @@
 "use client";
-
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { Phone } from "lucide-react";
-import Link from "next/link";
+import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Hero = () => {
+  // Scroll-based animation logic
+  const { scrollY } = useScroll();
+  // Center card: slight up on scroll
+  const centerY = useTransform(scrollY, [0, 300], [0, -30]);
+  // 2 and 4: more up than center
+  const sideY = useTransform(scrollY, [0, 300], [10, -50]);
+  // 1 and 5: different speed, more dramatic
+  const edgeY = useTransform(scrollY, [0, 300], [60, -70]);
+
   return (
-    <section className="w-full bg-[#fff] h-[100vh] md:h-[100vh] px-6 flex items-center">
-      <div className="max-w-7xl mx-auto px-7 w-full flex flex-col md:flex-row items-center justify-between gap-10 h-full">
-        
-       {/* Left Content */}
-      <div className="flex-1 flex flex-col justify-center h-full text-center md:text-left pt-48 md:pt-0">
-        <p className="uppercase text-sm text-gray-600 font-semibold tracking-wide mb-2">
-          Web Design, Hosting & Business Tools
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-          Top-Rated Web Design service,<span className=""></span>That Delivers Results{" "}
+    <section className="w-full min-h-screen flex flex-col items-center justify-start bg-white pt-24 pb-12 px-4 relative overflow-hidden">
+      {/* Lighting effect at the top center */}
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 z-0 pointer-events-none" style={{ width: '600px', height: '180px' }}>
+        <div className="w-full h-full rounded-full bg-gradient-to-b from-[#fff6] to-transparent blur-2xl opacity-70"></div>
+      </div>
+      <div className="flex flex-col items-center w-full max-w-7xl mx-auto z-10">
+        <h1
+          className="text-6xl md:text-9xl font-extrabold text-center mb-6 tracking-tight leading-tight mt-35 text-transparent bg-clip-text animate-gradient"
+          style={{
+            backgroundImage:
+              "linear-gradient(270deg, #f78529, #ff1e74, #135de6, #00e6b8, #f7e029, #f78529)",
+            backgroundSize: "1200% 1200%",
+            animation: "gradientMove 32s ease-in-out infinite"
+          }}
+        >
+          Design. Code. Deliver.
         </h1>
-        <p className="text-gray-600 mt-6 text-lg max-w-xl">
-          Stand out from the crowd with stunning websites, powerful hosting solutions, and next-gen AI business tools
+        <style>{`
+          @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+          }
+          .animate-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+          }
+        `}</style>
+        <p className="text-lg md:text-2xl text-center text-gray-700 max-w-2xl mb-8">
+          UI/UX designer, front-end developer (Next.js & Tailwind), and project manager crafting seamless digital experiences.
         </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row gap-2 justify-center md:justify-start">
-        {/* Call Button */}
-        <a
-          href="tel:+917907977521"
-          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md text-sm font-medium transition flex items-center gap-2"
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-full px-6 py-2 text-lg transition"
         >
-          <Phone className="w-4 h-4" />
-          Call now
-        </a>
+          Book a call
+        </button>
 
-        {/* Free Consultation Button */}
-        <Link
-          href="/pages/contact"
-          className="border border-gray-500 text-gray-700 hover:bg-gray-900 hover:text-white px-6 py-3 rounded-md text-sm font-medium transition flex items-center justify-center"
-        >
-          Free Consultation
-        </Link>
-      </div>
-
-
-
-
-        <p className="text-gray-500 text-sm mt-3">
-          Get a demo of our premium tools or try our free features today.
-        </p>
-      </div>
-
-
-        {/* Right Image (Updated) */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex-1 flex items-center justify-center h-full"
-        >
-          <div className="relative w-full h-full">
-            <Image
-              src="/myphoto.png" // Update with your new image path
-              alt="muhammed Image"
-              layout="fill"
-              objectFit="cover" 
-              className="object-center overflow-visible" // Centering the person
-              priority
-            />
-          </div>
-        </motion.div>
+        {/* Animated phone mockup placeholders */}
+        <div className="flex justify-center items-end gap-2 mt-16 w-full">
+          {/* Card 1 */}
+          <motion.div className="flex-1 flex justify-center" style={{ y: edgeY }}>
+            <div className="w-75 h-auto bg-white rounded-3xl flex items-center justify-center overflow-hidden">
+              <img src="/app1.avif" alt="App UI" className="object-cover w-full h-full" />
+            </div>
+          </motion.div>
+          {/* Card 2 */}
+          <motion.div className="flex-1 flex justify-center" style={{ y: sideY }}>
+            <div className="w-75 h-auto bg-white rounded-3xl flex items-center justify-center overflow-hidden">
+              <img src="/app1.avif" alt="App UI" className="object-cover w-full h-full" />
+            </div>
+          </motion.div>
+          {/* Card 3 (center) */}
+          <motion.div className="flex-1 flex justify-center" style={{ y: centerY }}>
+            <div className="w-80 h-auto bg-white rounded-3xl flex items-center justify-center overflow-hidden">
+              <img src="/app1.avif" alt="App UI" className="object-cover w-full h-full" />
+            </div>
+          </motion.div>
+          {/* Card 4 */}
+          <motion.div className="flex-1 flex justify-center" style={{ y: sideY }}>
+            <div className="w-75 h-auto bg-white rounded-3xl flex items-center justify-center overflow-hidden">
+              <img src="/app3.avif" alt="App UI" className="object-cover w-full h-full" />
+            </div>
+          </motion.div>
+          {/* Card 5 */}
+          <motion.div className="flex-1 flex justify-center" style={{ y: edgeY }}>
+            <div className="w-75 h-auto bg-white rounded-3xl flex items-center justify-center overflow-hidden">
+              <img src="/app1.avif" alt="App UI" className="object-cover w-full h-full" />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

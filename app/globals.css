@@ -6,6 +6,10 @@
   --font-sans: var(--font-manrope); /* ✅ Updated */
 }
 
+:root {
+  --font-family-display: "Wise Sans", "Inter", sans-serif;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
