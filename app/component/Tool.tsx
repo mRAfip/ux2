@@ -21,22 +21,81 @@ const tools: Tool[] = [
 
 export default function Tool() {
   return (
-    <section className="bg-black text-white py-20">
+    <section className="bg-black text-white py-28 ">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
-        <div className="mb-10">
+        <div className="mb-10 border-b-1 border-gray-500 py-6">
           <div className="mb-4 text-sm tracking-widest text-gray-400 uppercase">
-            <span className="text-red-500 font-bold">02</span> / Recent Work
+            <span className="text-red-500 font-bold">03</span> / WHAT I USE EVERYDAY
           </div>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-            Selection of experienced product design <br />
-            solutions and innovative digital concepts
+            Shaping Ideas with the Right Tools
           </h2>
         </div>
 
 
 {/* Tools Grid */}
+
+<h5 className='text-lg text-gray-600 mb-6'>UX Design</h5>
+
 <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  
+  {tools.map((tool, index) => (
+    <div
+      key={index}
+      className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-md px-6 py-5 flex items-center gap-4 hover:bg-[#252525] transition"
+    >
+      <tool.icon className="text-white text-2xl shrink-0" />
+      <div>
+        <h4 className="font-semibold text-white">{tool.name}</h4>
+        <p className="text-sm text-gray-400">{tool.description}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+
+<h5 className='text-lg text-gray-600 mb-6 mt-16'>UX Design</h5>
+
+<div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  
+  {tools.map((tool, index) => (
+    <div
+      key={index}
+      className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-md px-6 py-5 flex items-center gap-4 hover:bg-[#252525] transition"
+    >
+      <tool.icon className="text-white text-2xl shrink-0" />
+      <div>
+        <h4 className="font-semibold text-white">{tool.name}</h4>
+        <p className="text-sm text-gray-400">{tool.description}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+
+<h5 className='text-lg text-gray-600 mb-6 mt-16'>UX Design</h5>
+
+<div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  
+  {tools.map((tool, index) => (
+    <div
+      key={index}
+      className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-md px-6 py-5 flex items-center gap-4 hover:bg-[#252525] transition"
+    >
+      <tool.icon className="text-white text-2xl shrink-0" />
+      <div>
+        <h4 className="font-semibold text-white">{tool.name}</h4>
+        <p className="text-sm text-gray-400">{tool.description}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h5 className='text-lg text-gray-600 mb-6 mt-16'>UX Design</h5>
+
+<div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  
   {tools.map((tool, index) => (
     <div
       key={index}

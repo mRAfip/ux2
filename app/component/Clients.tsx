@@ -19,16 +19,16 @@ const clientLogos = [
 
 export default function Clients() {
   return (
-    <section className="bg-black text-white py-20">
+    <section className="bg-black text-white py-28">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="d-flex flex-col">
             {/* Section Label */}
     <div className="mb-6 text-md tracking-wider text-gray-400 uppercase">
-      <span className="text-red-500 font-bold">01</span> / About Me
+      <span className="text-red-500 font-bold">02</span> / CLIENTS & COLLABORATIONS
     </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Highlights</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Companies & Projects I’ve Worked With</h2>
           
         </div>
 

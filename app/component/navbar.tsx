@@ -1,9 +1,17 @@
 "use client";
 
-import { Headset, User, ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { Calendar, UserPlus, Mail, MapPin, Phone,  ChevronDown, Menu, X  } from "lucide-react";
+import {
+  faLinkedin,
+  faInstagram,
+  faYoutube,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -19,64 +27,96 @@ export default function Navbar() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
+
+
+
   return (
     <nav className={`w-full fixed top-0 z-50 transition-shadow ${scrolled ? "shadow-md bg-white" : "bg-white"}`}>
       {/* Top Utility Bar */}
-      <div className="w-full border-b border-gray-200 z-50 relative bg-white">
+      <div className="w-full border-b border-gray-100 z-50 relative bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-2 flex justify-between text-sm text-gray-600">
-          <div className="flex items-center space-x-6">
-            <Link href="/pages/support" className="hover:text-black flex items-center gap-1">
-              <Headset className="w-4 h-4" />
-              Customer Support
-            </Link>
-            <Link href="tel:+917907977521" className="hover:text-black flex items-center gap-1">
-              <User className="w-4 h-4" />
-              Contact Sales
-            </Link>
-          </div>
-          <div className="flex items-center space-x-4">
-            <Link href="/pages/about" className="hover:text-black">
-              About
-            </Link>
-          </div>
+
+      <div className="flex items-center space-x-6 text-sm text-gray-600">
+        <div className="flex items-center gap-1">
+          <MapPin className="w-4 h-4" />
+          Kerala, India
+        </div>
+        <a href="mailto:work.rafipmkm@gmail.com" className="hover:text-black flex items-center gap-1">
+          <Mail className="w-4 h-4" />
+          work.rafipmkm@gmail.com
+        </a>
+        <a href="tel:+917907977521" className="hover:text-black flex items-center gap-1">
+          <Phone className="w-4 h-4" />
+          +91 79079 77521
+        </a>
+      </div>
+
+
+
+<div className="flex items-center space-x-4 text-gray-600 text-sm">
+  <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+    <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" />
+  </a>
+  <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+    <FontAwesomeIcon icon={faInstagram} className="w-5 h-5" />
+  </a>
+  <a href="https://youtube.com/yourchannel" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+    <FontAwesomeIcon icon={faYoutube} className="w-5 h-5" />
+  </a>
+  <a href="https://x.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+    <FontAwesomeIcon icon={faXTwitter} className="w-5 h-5" />
+  </a>
+</div>
+
+
+
+
+
+
         </div>
       </div>
 
       {/* Main Navigation Bar */}
       <div className="w-full relative z-40">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
-          <Link href="/" className="flex-shrink-0">
+          <Link href="/" className="flex-shrink-0 text-black
+          ">
             Muhammed Rafi
           </Link>
 
           <div className="hidden md:flex space-x-6 font-medium text-gray-700">
             <Link href="/pages/contact" className="hover:text-black">
-              Pricing
+              Home
+            </Link>
+            <Link href="/" className="hover:text-black flex items-center gap-1">
+              Work <ChevronDown className="w-4 h-4" />
             </Link>
             <Link href="/pages/contact" className="hover:text-black flex items-center gap-1">
-              Products <ChevronDown className="w-4 h-4" />
-            </Link>
-            <Link href="/pages/contact" className="hover:text-black flex items-center gap-1">
-              Solutions <ChevronDown className="w-4 h-4" />
+              About <ChevronDown className="w-4 h-4" />
             </Link>
             <Link href="/pages/blog" className="hover:text-black flex items-center gap-1">
-              Blog <ChevronDown className="w-4 h-4" />
+              Services <ChevronDown className="w-4 h-4" />
             </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-4 text-sm">
             <Link
               href="/pages/contact"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-sm font-semibold"
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold flex items-center gap-2"
             >
-              Get a demo
+              <UserPlus className="w-4 h-4" />
+              Hire Me
             </Link>
-            <Link
-              href="/pages/contact"
-              className="border border-gray-600 text-gray-900 px-4 py-2 rounded-sm hover:bg-gray-900 hover:text-white"
-            >
-              Book a consultation
-            </Link>
+
+
+              <Link
+                href="/pages/contact"
+                className="border border-gray-600 text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white flex items-center gap-2"
+              >
+                <Calendar className="w-4 h-4" />
+                Book a consultation
+              </Link>
+
           </div>
 
           <div className="md:hidden">

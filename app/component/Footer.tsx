@@ -2,6 +2,8 @@
 
 import { ArrowUpCircle } from 'lucide-react';
 import Link from 'next/link';
+import { Calendar } from 'lucide-react';
+
 
 export default function Footer() {
   return (
@@ -9,15 +11,29 @@ export default function Footer() {
       {/* Top Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 border-b border-white/10 pb-12">
         {/* CTA (left) */}
-        <div>
-          <h3 className="text-2xl text-gray-400 mb-2">Let’s work together</h3>
-          <a
-            href="mailto:hey@victorberbel.work"
-            className="text-4xl md:text-5xl font-semibold border-b-2 border-orange-500 inline-block pb-1 hover:text-orange-400 transition"
-          >
-            hey@victorberbel.work
-          </a>
-        </div>
+<div> 
+  <h3 className="text-2xl text-gray-400 mb-2">Let’s work together</h3>
+  
+  <a
+    href="mailto:hey@victorberbel.work"
+    className="text-4xl md:text-5xl font-semibold border-b-2 border-orange-500 inline-block pb-1 hover:text-orange-400 transition"
+  >
+    hey@victorberbel.work
+  </a>
+
+  {/* Book a Call Button */}
+  <div className="mt-6">
+    <a
+      href="https://calendly.com/yourusername" // <- replace with your booking link
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 text-white bg-orange-500 hover:bg-orange-600 transition px-5 py-3 rounded-full font-medium text-base"
+    >
+      <Calendar size={20} />
+      Book a Call
+    </a>
+  </div>
+</div>
 
         {/* Empty Spacer */}
         <div></div>
