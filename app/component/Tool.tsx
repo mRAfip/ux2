@@ -26,7 +26,7 @@ export default function Tool() {
         {/* Section Header */}
         <div className="mb-10 border-b-1 border-gray-500 py-6">
           <div className="mb-4 text-sm tracking-widest text-gray-400 uppercase">
-            <span className="text-red-500 font-bold">03</span> / WHAT I USE EVERYDAY
+            <span className="text-[#FF531A] font-bold">03</span> / WHAT I USE EVERYDAY
           </div>
           <h2 className="text-3xl md:text-4xl font-bold leading-tight">
             Shaping Ideas with the Right Tools

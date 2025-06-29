@@ -63,7 +63,7 @@ export default function Highlights() {
         <div className="d-flex flex-col">
             {/* Section Label */}
           <div className="mb-6 text-md tracking-wider text-gray-400 uppercase">
-            <span className="text-red-500 font-bold">01</span> / FEATURED PROJECTS
+            <span className="text-[#FF531A] font-bold">01</span> / FEATURED PROJECTS
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-15">Crafted Interfaces. Real Results.</h2>

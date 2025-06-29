@@ -15,15 +15,15 @@ const Hero = () => {
 
       <div className="flex px-6 flex-col w-full max-w-7xl mx-auto z-10">
         <h1
-          className="text-6xl md:text-9xl font-extrabold mb-6 tracking-tight leading-tight mt-35 text-transparent bg-clip-text animate-gradient"
+          className="text-6xl md:text-9xl font-extrabold mb-6 tracking-tight leading-tight mt-15 text-transparent bg-clip-text animate-gradient"
           style={{
             backgroundImage:
-              "linear-gradient(270deg, #f78529, #ff1e74, #135de6, #00e6b8, #f7e029, #f78529)",
+              "linear-gradient(270deg, #f78529, #ff1e74, #135de6, #00A405)",
             backgroundSize: "1200% 1200%",
             animation: "gradientMove 32s ease-in-out infinite"
           }}
         >
-          Indian, 
+          An Indian, 
           <br />
           <span className="text-blue-500">UI/UX</span> Designer &
           <br />
@@ -60,7 +60,7 @@ const Hero = () => {
           <div className="hidden md:flex items-center gap-4 text-sm">
             <Link
               href="/pages/contact"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold flex items-center gap-2"
+              className="bg-[#3F2FEE] hover:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold flex items-center gap-2"
             >
               <UserPlus className="w-4 h-4" />
               Hire Me

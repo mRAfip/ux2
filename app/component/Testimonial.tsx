@@ -40,6 +40,10 @@ export default function Highlights() {
     <section className="w-full py-16 bg-gray-50">
       {/* Heading */}
       <div className="max-w-7xl mx-auto px-4 mb-10">
+                    {/* Section Label */}
+          <div className="mb-6 text-md tracking-wider text-gray-400 uppercase">
+            <span className="text-[#FF531A] font-bold">05</span> / FEATURED PROJECTS
+          </div>
         <h2 className="text-3xl md:text-4xl font-bold text-black">
           Find your best design into us. <br />
           We guarantee next success is yours!

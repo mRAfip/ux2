@@ -5,17 +5,16 @@ import { ArrowUpRight } from "lucide-react";
 
 const services = [
   {
-    title: "Branding Identity",
+    title: "User Experience Design (UX)",
     description:
-      "Create a trusted, global brand with our expert designs and strategies. We help improve your brand's visibility, credibility, and connection with customers both online and offline.",
+      "I create user-focused digital experiences that are intuitive, goal-driven, and easy to navigate. Through research, flow mapping, and usability analysis, I ensure every product delivers real value to the end user.",
     points: [
-      "Rebranding",
-      "Brand Guidelines",
-      "Brand Strategy",
-      "Brand Collaterals",
-      "Visual Identity Design",
-      "Brand Experience",
-      "Brand Audits",
+      "User Research & Persona Development",
+      "User Flow Mapping",
+      "UX Audits & Heuristic Evaluation",
+      "Wireframing & Low-Fidelity Prototyping",
+      "Information Architecture",
+      "Usability Testing",
     ],
     image: "/work/1.jpg",
     bg: "#3F2FEE",
@@ -24,15 +23,16 @@ const services = [
     text: "white",
   },
   {
-    title: "UX UI Design",
+    title: "Visual & UI Design",
     description:
-      "Design seamless and intuitive digital products that drive engagement and retention. We align design decisions with user behavior and business goals.",
+      "I design clean, modern, and consistent UI for websites, dashboards, and mobile apps using Figma — focused on accessibility, brand alignment, and user engagement.",
     points: [
-      "Wireframing",
-      "User Flows",
-      "Interactive Prototypes",
-      "Design Systems",
-      "UX Research",
+      "High-Fidelity UI Design",
+      "Responsive & Mobile-First Design",
+      "Design Systems & Component Libraries",
+      "Interactive Prototypes in Figma",
+      "Visual Branding & Style Guides",
+      "Pixel-perfect Detailing",
     ],
     image: "/work/2.jpg",
     bg: "#FFFFFF",
@@ -41,14 +41,15 @@ const services = [
     text: "black",
   },
   {
-    title: "Development",
+    title: "Front-End Development",
     description:
-      "Build fast, reliable, and scalable applications with modern web technologies. Our development process ensures clean code and smooth deployment.",
+      "I build responsive, fast-loading, and accessible websites and dashboards using Next.js and Tailwind CSS — translating design into scalable, real-world web interfaces.",
     points: [
-      "Frontend Development",
-      "Next.js & React",
-      "Backend APIs",
-      "CMS Integration",
+      "Next.js & Tailwind CSS Development",
+      "Design-to-Code Conversion",
+      "Component-based Architecture",
+      "Dashboard UI Integration",
+      "Landing Page Development",
       "Performance Optimization",
     ],
     image: "/work/3.jpg",
@@ -58,15 +59,16 @@ const services = [
     text: "black",
   },
   {
-    title: "E-Commerce",
+    title: "Project Management & Consulting",
     description:
-      "Launch powerful e-commerce platforms that scale with your business. We deliver high-converting, responsive stores with integrated payments.",
+      "I guide digital projects from idea to launch, offering UX strategy, design consulting, and end-to-end creative leadership to help teams deliver meaningful products.",
     points: [
-      "Shopify Development",
-      "WooCommerce Setup",
-      "Custom Features",
-      "Order Management",
-      "Conversion Optimization",
+      "Product Design Consultation",
+      "Project Scoping & Planning",
+      "Design & Dev Team Collaboration",
+      "UI/UX Audits & Strategy",
+      "Client Communication & Reporting",
+      "Creative Project Management",
     ],
     image: "/work/4.jpg",
     bg: "#FF531A",
@@ -74,24 +76,8 @@ const services = [
     btnBg: "#fff",
     text: "white",
   },
-  {
-    title: "Marketing & SEO",
-    description:
-      "Drive traffic and grow visibility through tailored digital marketing and SEO strategies. We help your brand stay ahead in search rankings.",
-    points: [
-      "SEO Audits",
-      "On-page Optimization",
-      "Content Strategy",
-      "Email Campaigns",
-      "Analytics & Insights",
-    ],
-    image: "/work/5.jpg",
-    bg: "#000",
-    hover: "#EBFE5B",
-    btnBg: "#fff",
-    text: "white",
-  },
 ];
+
 
 export default function Services() {
   return (
@@ -131,24 +117,24 @@ export default function Services() {
                 </ul>
             </div>
 
-<button
-  className="relative overflow-hidden inline-flex items-center px-6 py-3 rounded-full font-medium w-fit group z-10"
-  style={{
-    backgroundColor: service.btnBg, // Default background color
-    color: service.btnBg === "#000" ? "white" : "black", // Text color
-  }}
->
-  <span className="relative z-10">Build brand identity</span>
-  <ArrowUpRight className="ml-2 relative z-10" size={18} />
+              <button
+                className="relative overflow-hidden inline-flex items-center px-6 py-3 rounded-full font-medium w-fit group z-10"
+                style={{
+                  backgroundColor: service.btnBg, // Default background color
+                  color: service.btnBg === "#000" ? "white" : "black", // Text color
+                }}
+              >
+                <span className="relative z-10">View Work</span>
+                <ArrowUpRight className="ml-2 relative z-10" size={18} />
 
-  {/* Animated Hover Fill */}
-  <span
-    className="absolute inset-0 rounded-full scale-y-0 origin-bottom transition-transform duration-500 ease-in-out group-hover:scale-y-100 z-0"
-    style={{
-      backgroundColor: service.hover, // Hover color
-    }}
-  ></span>
-</button>
+                {/* Animated Hover Fill */}
+                <span
+                  className="absolute inset-0 rounded-full scale-y-0 origin-bottom transition-transform duration-500 ease-in-out group-hover:scale-y-100 z-0"
+                  style={{
+                    backgroundColor: service.hover, // Hover color
+                  }}
+                ></span>
+              </button>
 
 
 

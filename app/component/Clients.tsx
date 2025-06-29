@@ -25,7 +25,7 @@ export default function Clients() {
         <div className="d-flex flex-col">
             {/* Section Label */}
     <div className="mb-6 text-md tracking-wider text-gray-400 uppercase">
-      <span className="text-red-500 font-bold">02</span> / CLIENTS & COLLABORATIONS
+      <span className="text-[#FF531A] font-bold">02</span> / CLIENTS & COLLABORATIONS
     </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-white">Companies & Projects I’ve Worked With</h2>
