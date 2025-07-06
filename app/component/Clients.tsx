@@ -4,17 +4,17 @@ import Image from 'next/image';
 
 const clientLogos = [
   { src: '/logos/openedx.png', alt: 'openedx' },
-  { src: '/logos/rahmania.png', alt: 'rahmania' },
+  { src: '/logos/blended.svg', alt: 'blended' },
   { src: '/logos/xandy.png', alt: 'xandy' },
-  { src: '/logos/openedx.png', alt: 'openedx' },
+  { src: '/logos/hireyousoon.png', alt: 'hireyousoon' },
+  { src: '/logos/traveleo.png', alt: 'treveleo' },
+  { src: '/logos/amaala.png', alt: 'amaala global' },
+  { src: '/logos/phonix.png', alt: 'phonix' },
   { src: '/logos/rahmania.png', alt: 'rahmania' },
-  { src: '/logos/xandy.png', alt: 'xandy' },
-  { src: '/logos/openedx.png', alt: 'openedx' },
-  { src: '/logos/rahmania.png', alt: 'rahmania' },
-  { src: '/logos/xandy.png', alt: 'xandy' },
-  { src: '/logos/openedx.png', alt: 'openedx' },
-  { src: '/logos/rahmania.png', alt: 'rahmania' },
-  { src: '/logos/xandy.png', alt: 'xandy' },
+  { src: '/logos/retrofit.png', alt: 'retrofit' },
+  { src: '/logos/relish.png', alt: 'relish herbals' },
+  { src: '/logos/cyra.png', alt: 'cyra learning' },
+  { src: '/logos/ftric.png', alt: 'ftric' },
 ];
 
 export default function Clients() {
@@ -25,7 +25,7 @@ export default function Clients() {
         <div className="d-flex flex-col">
             {/* Section Label */}
     <div className="mb-6 text-md tracking-wider text-gray-400 uppercase">
-      <span className="text-[#FF531A] font-bold">02</span> / CLIENTS & COLLABORATIONS
+      <span className="text-[#FF531A] font-bold">03</span> / CLIENTS & COLLABORATIONS
     </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-white">Companies & Projects I’ve Worked With</h2>

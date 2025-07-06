@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Calendar, UserPlus, Mail, MapPin, Phone,  ChevronDown, Menu, X  } from "lucide-react";
+import { Download , UserPlus, Mail, MapPin, Phone,  ChevronDown, Menu, X  } from "lucide-react";
 import {
   faLinkedin,
   faInstagram,
@@ -54,16 +54,16 @@ export default function Navbar() {
 
     {/* Right Side: Social Media Icons */}
     <div className="flex items-center space-x-4 text-gray-600 text-sm">
-      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+      <a href="https://www.linkedin.com/in/pr-muhammed/" target="_blank" rel="noopener noreferrer" className="hover:text-black">
         <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" />
       </a>
-      <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+      <a href="https://www.instagram.com/therafitalks/" target="_blank" rel="noopener noreferrer" className="hover:text-black">
         <FontAwesomeIcon icon={faInstagram} className="w-5 h-5" />
       </a>
-      <a href="https://youtube.com/yourchannel" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+      <a href="https://www.youtube.com/@muhammed_mukkam" target="_blank" rel="noopener noreferrer" className="hover:text-black">
         <FontAwesomeIcon icon={faYoutube} className="w-5 h-5" />
       </a>
-      <a href="https://x.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-black">
+      <a href="https://x.com/ux_rafi" target="_blank" rel="noopener noreferrer" className="hover:text-black">
         <FontAwesomeIcon icon={faXTwitter} className="w-5 h-5" />
       </a>
     </div>
@@ -79,20 +79,18 @@ export default function Navbar() {
             Muhammed Rafi
           </Link>
 
-          <div className="hidden md:flex space-x-6 font-medium text-gray-700">
-            <Link href="/pages/contact" className="hover:text-black">
+          {/* <div className="hidden md:flex space-x-6 font-medium text-gray-700">
+            <Link href="/" className="hover:text-black">
               Home
             </Link>
-            <Link href="/" className="hover:text-black flex items-center gap-1">
-              Work <ChevronDown className="w-4 h-4" />
-            </Link>
             <Link href="/pages/contact" className="hover:text-black flex items-center gap-1">
-              About <ChevronDown className="w-4 h-4" />
+              Cources 
             </Link>
+
             <Link href="/pages/blog" className="hover:text-black flex items-center gap-1">
-              Services <ChevronDown className="w-4 h-4" />
+              Services 
             </Link>
-          </div>
+          </div> */}
 
           <div className="hidden md:flex items-center gap-4 text-sm">
             <Link
@@ -104,13 +102,15 @@ export default function Navbar() {
             </Link>
 
 
-              <Link
-                href="/pages/contact"
-                className="border border-gray-600 text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white flex items-center gap-2"
-              >
-                <Calendar className="w-4 h-4" />
-                Book a consultation
-              </Link>
+<Link
+  href="/Muhammed-Rafi-CV.pdf" // update with actual file path
+  target="_blank"
+  rel="noopener noreferrer"
+  className="border border-gray-600 text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white flex items-center gap-2"
+>
+  <Download className="w-4 h-4" />
+  Download CV
+</Link>
 
           </div>
 
@@ -163,14 +163,16 @@ export default function Navbar() {
               Hire Me
             </Link>
 
+<Link
+  href="/Muhammed-Rafi-CV.pdf" // update with actual file path
+  target="_blank"
+  rel="noopener noreferrer"
+  className="border border-gray-600 text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white flex items-center gap-2"
+>
+  <Download className="w-4 h-4" />
+  Download CV
+</Link>
 
-              <Link
-                href="/pages/contact"
-                className="border border-gray-600 text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white flex items-center gap-2"
-              >
-                <Calendar className="w-4 h-4" />
-                Book a consultation
-              </Link>
           </div>
         </div>
       )}

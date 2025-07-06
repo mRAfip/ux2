@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Calendar, UserPlus } from 'lucide-react';
+import { Download, UserPlus } from 'lucide-react';
 import Link from "next/link";
 import Image from "next/image";
 
@@ -67,13 +67,15 @@ const Hero = () => {
             </Link>
 
 
-              <Link
-                href="/pages/contact"
-                className="border border-gray-600 text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white flex items-center gap-2"
-              >
-                <Calendar className="w-4 h-4" />
-                Book a consultation
-              </Link>
+          <Link
+            href="/Muhammed-Rafi-CV.pdf" // update with actual file path
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-gray-600 text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white flex items-center gap-2"
+          >
+            <Download className="w-4 h-4" />
+            Download CV
+          </Link>
 
           </div>
 
