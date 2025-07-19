@@ -47,5 +47,11 @@ export const project = defineType({
       type: 'array',
       of: [{ type: 'block' }],
     }),
+    defineField({
+        name: "coverVideo",
+        title: "Cover Video",
+        type: "url",
+        description: "Optional. MP4 URL for background hero section.",
+    }),
   ],
 });

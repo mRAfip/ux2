@@ -12,6 +12,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { usePathname } from 'next/navigation';
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,6 +30,13 @@ export default function Navbar() {
   }, [menuOpen]);
 
 
+
+    const pathname = usePathname();
+
+  // 👇 Hide Navbar on /project/[slug]
+  if (pathname.startsWith('/project/')) {
+    return null;
+  }
 
 
   return (
