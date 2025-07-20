@@ -64,6 +64,7 @@ export default function Highlights() {
 
       {/* Testimonial Swiper */}
       <div className="max-w-7xl mx-auto px-4">
+        
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Navigation]}

@@ -3,128 +3,139 @@
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
-import Link from 'next/link'; // Add this import
+import Link from 'next/link';
+import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-import { sanityClient } from '@/sanity/lib/sanityClient';
-import { projectsQuery } from '@/sanity/lib/queries';
-import { urlFor } from '@/sanity/lib/imageBuilder';
+import { supabase } from '@/lib/supabase';
 
 type Project = {
-  _id: string;
+  id: number;
+  project_name: string;
   title: string;
-  summary: string;
-  image: any; // Sanity image object
-  slug: string; // ✅ Add this line
-
+  description: string;
+  image_url: string;
+  created_at: string;
+  services_provided?: string;
 };
 
-export default function Highlights() {
-  const swiperRef = useRef<any>(null);
-  const [isPaused, setIsPaused] = useState(true);
+export default function ProjectsSwiper() {
   const [projects, setProjects] = useState<Project[]>([]);
-
-  const toggleAutoplay = () => {
-    if (!swiperRef.current) return;
-    isPaused ? swiperRef.current.autoplay.start() : swiperRef.current.autoplay.stop();
-    setIsPaused(!isPaused);
-  };
+  const [loading, setLoading] = useState(true);
+  const swiperRef = useRef<any>(null);
 
   useEffect(() => {
-    sanityClient.fetch(projectsQuery).then((data) => setProjects(data));
+    const fetchProjects = async () => {
+      const { data, error } = await supabase
+        .from('projects')
+        .select('id, project_name, title, description, image_url, created_at')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Error fetching projects:', error.message);
+      } else {
+        setProjects(data || []);
+      }
+
+      setLoading(false);
+    };
+
+    fetchProjects();
   }, []);
 
   return (
-    <section id="work" className="w-full py-28 bg-white">
-      {/* Heading */}
-      <div className="max-w-7xl mx-auto px-4 mb-6">
-        <div className="d-flex flex-col">
+    <div className="relative py-28">
+      <div className="flex justify-between items-center mb-4 max-w-7xl mx-auto px-4">
+        <div className="flex flex-col">
           <div className="mb-6 text-md tracking-wider text-gray-400 uppercase">
-            <span className="text-[#FF531A] font-bold">01</span> / FEATURED PROJECTS
+            <span className="text-[#FF531A] font-bold uppercase">01</span> / Featured Work
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-15">
-            Crafted Interfaces. Real Results.
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            Real work, real results
           </h2>
         </div>
       </div>
 
-      {/* Swiper */}
-      <div className="w-full overflow-visible">
-        <Swiper
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-            swiper.autoplay.stop();
-          }}
-          modules={[Autoplay, Navigation]}
-          autoplay={{ delay: 8000, disableOnInteraction: false }}
-          loop={true}
-          spaceBetween={24}
-          slidesPerView={1.2}
-          breakpoints={{
-            768: { slidesPerView: 2.2 },
-            1024: { slidesPerView: 3.2 },
-          }}
-          wrapperClass="px-4 md:px-82"
+      <div className="max-w-7xl mx-auto py-5 overflow-visible relative px-4">
+
+
+<Swiper
+  onSwiper={(swiper) => {
+    swiperRef.current = swiper;
+    swiper.autoplay?.stop();
+  }}
+  modules={[Autoplay, Navigation]}
+  autoplay={{ delay: 5000, disableOnInteraction: false }}
+  loop={true}
+  spaceBetween={24}
+  slidesPerView={'auto'}
+  className="!overflow-visible mt-7"
+>
+  {loading
+    ? [...Array(3)].map((_, index) => (
+        <SwiperSlide
+          key={index}
+          className="!h-auto !w-auto"
+          style={{ width: '350px' }}
         >
-        {projects.map((slide) => (
-          <SwiperSlide key={slide._id} className="!h-auto !w-auto">
-            <Link href={`/project/${slide.slug}`}>
-              <div className="max-w-[350px] rounded-xl bg-white overflow-hidden cursor-pointer">
-                <div className="relative">
-                  <Image
-                    src={urlFor(slide.image).width(550).height(700).url()}
-                    alt={slide.title}
-                    width={550}
-                    height={700}
-                    className="w-full h-auto object-cover rounded-xl"
-                  />
-                </div>
-                <div className="py-4">
-                  <h3 className="text-xl font-bold text-gray-800">{slide.title}</h3>
-                  <p className="mt-2 text-sm text-gray-600">{slide.summary}</p>
-                </div>
+          <div className="w-[350px] rounded-md bg-white overflow-hidden">
+            <div className="w-full h-[300px] bg-gray-200 animate-pulse rounded-md" />
+            <div className="p-4">
+              <div className="h-4 bg-gray-200 rounded w-3/4 mb-3 animate-pulse" />
+              <div className="h-3 bg-gray-200 rounded w-full mb-2 animate-pulse" />
+              <div className="h-3 bg-gray-200 rounded w-5/6 animate-pulse" />
+            </div>
+          </div>
+        </SwiperSlide>
+      ))
+    : projects.map((project) => (
+        <SwiperSlide
+          key={project.id}
+          className="!h-auto !w-auto"
+          style={{ width: '350px' }}
+        >
+          <Link href={`/project/${project.id}`}>
+            <div className="w-[350px] rounded-md bg-white overflow-hidden transition-all">
+              <div className="relative w-full aspect-[3/4]"> {/* Makes vertical image */}
+                <Image
+                  src={project.image_url || '/placeholder.jpg'}
+                  alt={project.project_name}
+                  fill
+                  className="object-cover "
+                />
               </div>
-            </Link>
-          </SwiperSlide>
-        ))}
-        </Swiper>
+              <div className="py-3 px-3">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {project.project_name}
+                </h3>
+                <span className="text-gray-500">{project.services_provided || 'N/A'}</span>
+              </div>
+            </div>
+          </Link>
+        </SwiperSlide>
+      ))}
+</Swiper>
+
+
       </div>
 
-      {/* Controls */}
-      <div className="flex items-center justify-between max-w-7xl mx-auto px-4 mt-10">
-        {/* Play/Pause Button */}
-        <div className="w-[60px] h-[60px] bg-gray-100 rounded-full flex items-center justify-center">
-          <button
-            onClick={toggleAutoplay}
-            className="text-gray-500 hover:opacity-80 transition"
-          >
-            {isPaused ? <Play size={24} /> : <Pause size={24} />}
-          </button>
-        </div>
-
-        {/* Prev/Next Buttons */}
-        <div className="flex gap-3">
-          <div className="w-[60px] h-[60px] bg-gray-100 rounded-full flex items-center justify-center">
-            <button
-              onClick={() => swiperRef.current?.slidePrev()}
-              className="text-gray-500 hover:opacity-80 transition"
-            >
-              <ChevronLeft size={24} />
-            </button>
-          </div>
-          <div className="w-[60px] h-[60px] bg-gray-100 rounded-full flex items-center justify-center">
-            <button
-              onClick={() => swiperRef.current?.slideNext()}
-              className="text-gray-500 hover:opacity-80 transition"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
-        </div>
+      {/* Navigation Arrows */}
+      <div className="flex max-w-7xl mx-auto items-center justify-start mt-10 gap-3 px-4">
+        <button
+          onClick={() => swiperRef.current?.slidePrev()}
+          className="w-[50px] h-[50px] bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:opacity-80 transition"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          onClick={() => swiperRef.current?.slideNext()}
+          className="w-[50px] h-[50px] bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:opacity-80 transition"
+        >
+          <ChevronRight size={24} />
+        </button>
       </div>
-    </section>
+    </div>
   );
 }
