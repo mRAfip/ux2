@@ -11,7 +11,9 @@ type Project = {
   project_name: string;
   title: string;
   description: string;
+  short_description : string;
   image_url: string;
+  cover_page: string;
   created_at: string;
   start_date?: string;
   end_date?: string;
@@ -83,15 +85,26 @@ export default function ProjectDetailPage() {
 
     if (typeof project?.final_ui_screens === 'string') {
       try {
+        // Try parsing as JSON first
         const parsed = JSON.parse(project.final_ui_screens as string);
         finalScreens = Array.isArray(parsed) ? parsed : [];
       } catch {
-        finalScreens = (project.final_ui_screens as string).split(',').map((s) => s.trim());
+        // Fallback: manually split and clean
+        finalScreens = (project.final_ui_screens as string)
+          .replace(/^\[|\]$/g, '') // remove [ and ] from start/end
+          .split(',')
+          .map((s) =>
+            s
+              .trim()
+              .replace(/^"(.*)"$/, '$1') // remove surrounding quotes
+              .replace(/([^:]\/)\/+/g, '$1') // fix double slashes, preserve protocol
+          );
       }
     } else if (Array.isArray(project?.final_ui_screens)) {
-      finalScreens = project.final_ui_screens;
+      finalScreens = project.final_ui_screens.map((url) =>
+        url.replace(/([^:]\/)\/+/g, '$1')
+      );
     }
-
 
 
   if (loading) return <div className="text-center py-20">Loading...</div>;
@@ -102,13 +115,14 @@ export default function ProjectDetailPage() {
       {/* Hero Section */}
       <div className="relative  w-full h-[90vh] overflow-hidden">
         {/* Background image */}
-        <Image
-          src={project.image_url}
-          alt={project.project_name}
-          fill
-          priority
-          className="object-cover"
-        />
+          <Image
+            src={project.cover_page || project.image_url}
+            alt={project.project_name}
+            fill
+            priority
+            className="object-cover"
+          />
+
 
         {/* Content Overlay */}
         <div className="absolute inset-0 bg-black/60 flex items-center">
@@ -120,7 +134,7 @@ export default function ProjectDetailPage() {
               <h1 className="text-4xl md:text-8xl font-bold leading-tight mb-4">
                 {project.title}
               </h1>
-              <p className="text-lg text-gray-200">{project.description}</p>
+              <p className="text-lg text-gray-200">{project.short_description}</p>
             </div>
           </div>
         </div>
@@ -131,9 +145,7 @@ export default function ProjectDetailPage() {
   {/* Section Header */}
   <div className="mb-12">
     <h2 className="text-3xl font-bold mb-4">Project Overview</h2>
-    <p className="text-gray-600 text-lg">
-      This project demonstrates our ability to create cohesive, high-converting digital experiences. Every detail is crafted to help our clients succeed.
-    </p>
+              <p className="text-lg text-gray-500">{project.description}</p>
   </div>
 
   {/* Info Rows */}
@@ -173,16 +185,15 @@ export default function ProjectDetailPage() {
 
 
 
-<section className="max-w-7xl mx-auto px-6 py-24">
+<section className="max-w-7xl mx-auto px-6 py-24 border-t border-gray-200">
   <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
     
     {/* LEFT: Sticky Title/Intro */}
     <div className="lg:col-span-2">
       <div className="sticky top-24">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Design System Screens</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">Behind the Design – Process & Challenges</h2>
         <p className="text-gray-600 text-lg">
-          Here’s a detailed look at our design system screens — including typography, colors, components,
-          layout rules, and UI elements that ensure consistency and scalability.
+          We followed a structured design process, creating a scalable system with clear styles and reusable components to solve UI challenges and ensure consistency.
         </p>
       </div>
     </div>
@@ -216,7 +227,7 @@ export default function ProjectDetailPage() {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
       {/* First full-width image */}
-      <div className="md:col-span-3 h-[400px] rounded-2xl overflow-hidden">
+      <div className="md:col-span-3 h-[700px] rounded-2xl overflow-hidden">
         <img
           src={finalScreens[0]}
           alt="Final UI screen"

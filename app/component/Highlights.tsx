@@ -30,7 +30,7 @@ export default function ProjectsSwiper() {
     const fetchProjects = async () => {
       const { data, error } = await supabase
         .from('projects')
-        .select('id, project_name, title, description, image_url, created_at')
+        .select('id, project_name, title, description, image_url, created_at, services_provided')
         .order('created_at', { ascending: false });
 
       if (error) {
@@ -103,7 +103,7 @@ export default function ProjectsSwiper() {
                   src={project.image_url || '/placeholder.jpg'}
                   alt={project.project_name}
                   fill
-                  className="object-cover "
+                  className="object-cover rounded-md"
                 />
               </div>
               <div className="py-3 px-3">
