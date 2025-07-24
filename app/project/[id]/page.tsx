@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import Image from 'next/image';
-import Footer from "@/app/component/Footer";
+import Footer from '@/app/component/Footer';
 
 type Project = {
   id: number;
   project_name: string;
   title: string;
   description: string;
-  short_description : string;
+  short_description: string;
   image_url: string;
   cover_page: string;
   created_at: string;
@@ -20,8 +20,8 @@ type Project = {
   services_provided?: string;
   testimonial_body?: string;
   client_name?: string;
-  project_screens?: string[]; // Array of image URLs for project screens
-  final_ui_screens?: string[]; // Array of image URLs for final UI grid
+  project_screens?: string[]; // Array of image URLs for process/flow
+  project_link?: string; // ✅ New field for Figma/Behance link
 };
 
 export default function ProjectDetailPage() {
@@ -48,11 +48,7 @@ export default function ProjectDetailPage() {
     if (id) fetchProject();
   }, [id]);
 
-
-  // Function to format date strings
-  // This will format the date to a more readable format like "Jan 1,
-
-    const formatDate = (dateStr?: string) => {
+  const formatDate = (dateStr?: string) => {
     if (!dateStr) return '';
     const date = new Date(dateStr);
     return date.toLocaleDateString(undefined, {
@@ -62,50 +58,18 @@ export default function ProjectDetailPage() {
     });
   };
 
-  // Parse project_screens from string or array
-  // This handles both cases where it might be a JSON string or a simple comma-separated string
+  let screens: string[] = [];
 
-    let screens: string[] = [];
-
-    if (typeof project?.project_screens === 'string') {
-      try {
-        const parsed = JSON.parse(project.project_screens as string);
-        screens = Array.isArray(parsed) ? parsed : [];
-      } catch {
-        screens = (project.project_screens as string).split(',').map((s) => s.trim());
-      }
-    } else if (Array.isArray(project?.project_screens)) {
-      screens = project.project_screens;
+  if (typeof project?.project_screens === 'string') {
+    try {
+      const parsed = JSON.parse(project.project_screens as string);
+      screens = Array.isArray(parsed) ? parsed : [];
+    } catch {
+      screens = (project.project_screens as string).split(',').map((s) => s.trim());
     }
-
-
-    // final UI screens
-
-    let finalScreens: string[] = [];
-
-    if (typeof project?.final_ui_screens === 'string') {
-      try {
-        // Try parsing as JSON first
-        const parsed = JSON.parse(project.final_ui_screens as string);
-        finalScreens = Array.isArray(parsed) ? parsed : [];
-      } catch {
-        // Fallback: manually split and clean
-        finalScreens = (project.final_ui_screens as string)
-          .replace(/^\[|\]$/g, '') // remove [ and ] from start/end
-          .split(',')
-          .map((s) =>
-            s
-              .trim()
-              .replace(/^"(.*)"$/, '$1') // remove surrounding quotes
-              .replace(/([^:]\/)\/+/g, '$1') // fix double slashes, preserve protocol
-          );
-      }
-    } else if (Array.isArray(project?.final_ui_screens)) {
-      finalScreens = project.final_ui_screens.map((url) =>
-        url.replace(/([^:]\/)\/+/g, '$1')
-      );
-    }
-
+  } else if (Array.isArray(project?.project_screens)) {
+    screens = project.project_screens;
+  }
 
   if (loading) return <div className="text-center py-20">Loading...</div>;
   if (!project) return <div className="text-center py-20">Project not found.</div>;
@@ -113,19 +77,15 @@ export default function ProjectDetailPage() {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative  w-full h-[90vh] overflow-hidden">
-        {/* Background image */}
-          <Image
-            src={project.cover_page || project.image_url}
-            alt={project.project_name}
-            fill
-            priority
-            className="object-cover"
-          />
-
-
-        {/* Content Overlay */}
-        <div className="absolute inset-0 bg-black/60 flex items-center">
+      <div className="relative w-full h-[90vh] overflow-hidden">
+        <Image
+          src={project.cover_page || project.image_url}
+          alt={project.project_name}
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/20 flex items-center">
           <div className="max-w-7xl pl-48 text-white">
             <div className="max-w-5xl">
               <p className="text-md uppercase tracking-widest text-gray-300">
@@ -140,129 +100,109 @@ export default function ProjectDetailPage() {
         </div>
       </div>
 
-      {/* About Project Section (blank for now) */}
-<section className="max-w-4xl mx-auto px-6 py-20 text-gray-800">
-  {/* Section Header */}
-  <div className="mb-12">
-    <h2 className="text-3xl font-bold mb-4">Project Overview</h2>
-              <p className="text-lg text-gray-500">{project.description}</p>
-  </div>
-
-  {/* Info Rows */}
-  <div className="space-y-6 text-sm text-gray-700 border-t border-gray-200 pt-6">
-    <div className="flex justify-between">
-      <span className="font-medium">Timeline</span>
-      <span className="text-gray-500">
-        {formatDate(project.start_date)} – {formatDate(project.end_date)}
-      </span>
-    </div>
-    <div className="flex justify-between">
-      <span className="font-medium">Services provided</span>
-      <span className="text-gray-500">{project.services_provided || 'N/A'}</span>
-
-    </div>
-
-  </div>
-
-
-
-  {/* Testimonial */}
-  <div className="mt-12 border-t border-gray-200 pt-6">
-    <h4 className="text-lg font-semibold mb-2">Client Testimonial</h4>
-      {project.testimonial_body && (
-        <blockquote className="italic text-gray-700 bg-gray-50 p-4 rounded-lg">
-          “{project.testimonial_body}”
-        </blockquote>
-      )}
-
-    {project.client_name && (
-      <p className="mt-2 text-sm text-gray-500">– {project.client_name}</p>
-    )}
-
-  </div>
-</section>
-
-
-
-
-<section className="max-w-7xl mx-auto px-6 py-24 border-t border-gray-200">
-  <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-    
-    {/* LEFT: Sticky Title/Intro */}
-    <div className="lg:col-span-2">
-      <div className="sticky top-24">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Behind the Design – Process & Challenges</h2>
-        <p className="text-gray-600 text-lg">
-          We followed a structured design process, creating a scalable system with clear styles and reusable components to solve UI challenges and ensure consistency.
-        </p>
-      </div>
-    </div>
-
-    {/* RIGHT: Vertical list of image cards (no scroll container) */}
-    <div className="lg:col-span-3 space-y-6">
-      {screens.map((url: string, idx: number) => (
-        <div
-          key={idx}
-          className="w-full h-[500px] bg-white rounded-xl shadow overflow-hidden"
-        >
-          <img
-            src={url}
-            alt={`UI screen ${idx + 1}`}
-            className="w-full h-full object-cover"
-          />
+      {/* Overview Section */}
+      <section className="max-w-4xl mx-auto px-6 py-20 text-gray-800">
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold mb-4">Project Overview</h2>
+          <p className="text-lg text-gray-500">{project.description}</p>
         </div>
-      ))}
-    </div>
-
-  </div>
-</section>
 
 
 
+        <div className="space-y-6 text-sm text-gray-700 border-t border-gray-200 pt-6">
+          <div className="flex justify-between">
+            <span className="font-medium">Timeline</span>
+            <span className="text-gray-500">
+              {formatDate(project.start_date)} – {formatDate(project.end_date)}
+            </span>
+          </div>
 
+          <div className="flex justify-between">
+            <span className="font-medium">Services provided</span>
+            <span className="text-gray-500">{project.services_provided || 'N/A'}</span>
+          </div>
 
-{finalScreens.length > 0 && (
-  <section className="max-w-7xl mx-auto px-6 py-20">
-    <h2 className="text-3xl font-bold text-gray-900 mb-8">Final UI Screens</h2>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      {/* First full-width image */}
-      <div className="md:col-span-3 h-[700px] rounded-2xl overflow-hidden">
-        <img
-          src={finalScreens[0]}
-          alt="Final UI screen"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Middle grid images */}
-      {finalScreens.slice(1, -1).map((url, idx) => (
-        <div key={idx} className="h-[250px] rounded-2xl overflow-hidden">
-          <img
-            src={url}
-            alt={`UI Screen ${idx + 2}`}
-            className="w-full h-full object-cover"
-          />
+          {project.project_link && (
+            <div className="flex justify-between">
+              <span className="font-medium">Full Case Study</span>
+              <a
+                href={project.project_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline text-sm"
+              >
+                View on Figma/Behance →
+              </a>
+            </div>
+          )}
         </div>
-      ))}
 
-      {/* Last full-width image */}
-      {finalScreens.length > 1 && (
-        <div className="md:col-span-3 h-[400px] rounded-2xl overflow-hidden">
-          <img
-            src={finalScreens[finalScreens.length - 1]}
-            alt="Final UI screen"
-            className="w-full h-full object-cover"
-          />
+        {/* Testimonial */}
+        <div className="mt-12 border-t border-gray-200 pt-6">
+          <h4 className="text-lg font-semibold mb-2">Client Testimonial</h4>
+          {project.testimonial_body && (
+            <blockquote className="italic text-gray-700 bg-gray-50 p-4 rounded-lg">
+              “{project.testimonial_body}”
+            </blockquote>
+          )}
+          {project.client_name && (
+            <p className="mt-2 text-sm text-gray-500">– {project.client_name}</p>
+          )}
         </div>
-      )}
-    </div>
-  </section>
-)}
+      </section>
+
+      {/* Design Process Screens */}
+      <section className="max-w-7xl mx-auto px-6 py-24 border-t border-gray-200">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+          <div className="lg:col-span-2">
+            <div className="sticky top-24">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Behind the Design – Process & Challenges
+              </h2>
+              <p className="text-gray-600 text-lg">
+                We followed a structured design process, creating a scalable system with
+                clear styles and reusable components to solve UI challenges and ensure
+                consistency.
+              </p>
+            </div>
+          </div>
+
+          <div className="lg:col-span-3 space-y-6">
+            {screens.map((url: string, idx: number) => (
+              <div
+                key={idx}
+                className="w-full h-[500px] bg-white rounded-xl shadow overflow-hidden"
+              >
+                <img
+                  src={url}
+                  alt={`UI screen ${idx + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Redirect Button to Case Study */}
+
+        {project.project_link && (
+          <section className="max-w-7xl mx-auto py-4 pb-9">
+            <div className="text-left">
+              <a
+                href={project.project_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-black text-white px-8 py-4 rounded-full text-lg font-semibold transition hover:bg-gray-800"
+              >
+                🚀 View Final UI 
+              </a>
+            </div>
+          </section>
+        )}
 
 
-      <Footer/>
-
+      <Footer />
     </>
   );
 }
