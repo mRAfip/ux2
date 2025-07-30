@@ -1,19 +1,19 @@
 'use client';
 
-import { ArrowUpCircle, UserPlus } from 'lucide-react';
 import Link from 'next/link';
-
+import { Mail } from 'lucide-react';
+import { Linkedin, Instagram,UserPlus, Youtube, Mic, Twitter, Facebook } from 'lucide-react';
 export default function Footer() {
   return (
-    <footer className="bg-black text-white px-6 md:px-12 lg:px-32 pt-28 pb-14">
-      {/* Top Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 border-b border-white/10 pb-12">
-        {/* CTA Section */}
+    <footer className="bg-[#66141A] text-white px-6 md:px-12 lg:px-32 pt-16 pb-10">
+      {/* Newsletter & Socials */}
+      <div className="flex flex-col lg:flex-row justify-between items-start gap-8 border-b border-white/20 pb-10">
+        {/* Work Together Section */}
         <div>
-          <h3 className="text-2xl text-gray-400 mb-2">Let’s work together</h3>
+          <h3 className="text-2xl font-semibold mb-4">Let’s work together</h3>
           <a
             href="mailto:work.rafipmkm@gmail.com"
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold border-b-2 border-[#3F2FEE] inline-block pb-1 hover:text-[#3F2FEE] transition"
+            className="text-3xl md:text-4xl lg:text-5xl font-semibold underline underline-offset-4 hover:text-red-400 transition"
           >
             work.rafipmkm@gmail.com
           </a>
@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="mt-6">
             <Link
               href="/pages/contact"
-              className="bg-[#3F2FEE] hover:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold flex items-center gap-2 w-fit"
+              className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full font-semibold flex items-center gap-2 w-fit"
             >
               <UserPlus className="w-4 h-4" />
               Hire Me
@@ -29,50 +29,98 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Spacer for larger screens */}
-        <div className="hidden lg:block"></div>
 
-        {/* Explore & Social Links */}
-        <div className="grid grid-cols-2 md:flex md:justify-between gap-y-8 text-sm w-full">
-          <div>
-            <h4 className="text-gray-400 mb-2 font-medium">Explore</h4>
-            <ul className="space-y-1">
-              <li><Link href="#">Home</Link></li>
-              <li><Link href="#">Resources</Link></li>
-              <li><Link href="#">Contact</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-gray-400 mb-2 font-medium">Socials</h4>
-            <ul className="space-y-1">
-              <li><Link href="https://www.linkedin.com/in/pr-muhammed/">LinkedIn</Link></li>
-              <li><Link href="https://www.instagram.com/therafitalks/">Instagram</Link></li>
-              <li><Link href="https://x.com/ux_rafi">X.com</Link></li>
-              <li><Link href="https://www.youtube.com/@muhammed_mukkam">Youtube</Link></li>
-            </ul>
+        {/* Social Links */}
+        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6">
+          <span className="text-xl font-semibold">Follow Us</span>
+          <div className="flex gap-4">
+            <Link href="#" className="hover:text-red-400 transition">
+              <Linkedin size={24} />
+            </Link>
+            <Link href="#" className="hover:text-red-400 transition">
+              <Instagram size={24} />
+            </Link>
+            <Link href="#" className="hover:text-red-400 transition">
+              <Youtube size={24} />
+            </Link>
+            <Link href="#" className="hover:text-red-400 transition">
+              <Mic size={24} />
+            </Link>
+            <Link href="#" className="hover:text-red-400 transition">
+              <Twitter size={24} />
+            </Link>
+            <Link href="#" className="hover:text-red-400 transition">
+              <Facebook size={24} />
+            </Link>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="mt-10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 gap-6">
-        <p className="text-center md:text-left">
-          © 2025 Muhammed Rafi — Crafting Impactful UI/UX Since 2020
-        </p>
 
-        <a
-          href="#top"
-          className="flex items-center gap-2 text-white hover:text-[#3F2FEE] transition"
-        >
-          Take me to the top <ArrowUpCircle size={24} />
-        </a>
+      {/* Footer Navigation */}
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mt-10 text-sm">
+        <div>
+          <h4 className="font-semibold mb-3">Certification</h4>
+          <ul className="space-y-2">
+            <li><Link href="#">What is UX Certification?</Link></li>
+            <li><Link href="#">Specialties</Link></li>
+            <li><Link href="#">Exams</Link></li>
+            <li><Link href="#">UX Certified People</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-semibold mb-3">UX Training</h4>
+          <ul className="space-y-2">
+            <li><Link href="#">All Live Courses</Link></li>
+            <li><Link href="#">Live Online Training Events</Link></li>
+            <li><Link href="#">Private Team Training</Link></li>
+            <li><Link href="#">Course Calendar</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-semibold mb-3">Consulting</h4>
+          <ul className="space-y-2">
+            <li><Link href="#">Expert Review</Link></li>
+            <li><Link href="#">User Testing</Link></li>
+            <li><Link href="#">Customized Research</Link></li>
+            <li><Link href="#">Applied Workshops</Link></li>
+            <li><Link href="#">Keynote Speaking</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-semibold mb-3">Free Guidance</h4>
+          <ul className="space-y-2">
+            <li><Link href="#">Articles & Videos</Link></li>
+            <li><Link href="#">The NN/g UX Podcast</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-semibold mb-3">About</h4>
+          <ul className="space-y-2">
+            <li><Link href="#">Why NN/g</Link></li>
+            <li><Link href="#">About Us</Link></li>
+            <li><Link href="#">People</Link></li>
+            <li><Link href="#">Clients</Link></li>
+            <li><Link href="#">Contact</Link></li>
+            <li><Link href="#">Return Policy</Link></li>
+          </ul>
+        </div>
       </div>
 
-      {/* Background Text */}
-      <div className="mt-16 text-center w-full overflow-hidden">
-        <h1 className="text-6xl md:text-9xl lg:text-[15vw] font-extrabold text-white/5 uppercase tracking-tight leading-none whitespace-nowrap">
-          Muhammed
-        </h1>
+      {/* Bottom Bar */}
+      <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-300 mt-10 gap-4">
+        <p>© 1998-2025 Nielsen Norman Group, All Rights Reserved.</p>
+        <div className="flex gap-4">
+          <Link href="#">Cookie Preferences</Link>
+          <span>/</span>
+          <Link href="#">Cookie Declaration</Link>
+          <span>/</span>
+          <Link href="#">Privacy Policy</Link>
+        </div>
       </div>
     </footer>
   );
