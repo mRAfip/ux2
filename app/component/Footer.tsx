@@ -34,94 +34,100 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-6">
           <span className="text-xl font-semibold">Follow Us</span>
           <div className="flex gap-4">
-            <Link href="#" className="hover:text-red-400 transition">
+            <Link href="https://www.linkedin.com/in/pr-muhammed/" className="hover:text-red-400 transition">
               <Linkedin size={24} />
             </Link>
-            <Link href="#" className="hover:text-red-400 transition">
+            <Link href="https://www.instagram.com/therafitalks/" className="hover:text-red-400 transition">
               <Instagram size={24} />
             </Link>
-            <Link href="#" className="hover:text-red-400 transition">
+            <Link href="https://www.youtube.com/@muhammed_mukkam" className="hover:text-red-400 transition">
               <Youtube size={24} />
             </Link>
-            <Link href="#" className="hover:text-red-400 transition">
-              <Mic size={24} />
-            </Link>
-            <Link href="#" className="hover:text-red-400 transition">
+            <Link href="https://x.com/ux_rafi" className="hover:text-red-400 transition">
               <Twitter size={24} />
             </Link>
-            <Link href="#" className="hover:text-red-400 transition">
-              <Facebook size={24} />
-            </Link>
+
           </div>
         </div>
       </div>
 
 
-      {/* Footer Navigation */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mt-10 text-sm">
-        <div>
-          <h4 className="font-semibold mb-3">Certification</h4>
-          <ul className="space-y-2">
-            <li><Link href="#">What is UX Certification?</Link></li>
-            <li><Link href="#">Specialties</Link></li>
-            <li><Link href="#">Exams</Link></li>
-            <li><Link href="#">UX Certified People</Link></li>
-          </ul>
+        {/* Footer Navigation */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mt-10 text-sm">
+          {/* Services */}
+          <div>
+            <h4 className="font-semibold mb-3">Services</h4>
+            <ul className="space-y-2 text-gray-400">
+              <li><Link href="#">UI/UX Design</Link></li>
+              <li><Link href="#">Frontend Development</Link></li>
+              <li><Link href="#">Landing Page Design</Link></li>
+              <li><Link href="#">E-commerce Design</Link></li>
+              <li><Link href="#">Website Redesign</Link></li>
+            </ul>
+          </div>
+
+          {/* Courses */}
+          <div>
+            <h4 className="font-semibold mb-3">Courses</h4>
+            <ul className="space-y-2 text-gray-400">
+              <li><Link href="#">Beginner UI/UX Bootcamp</Link></li>
+              <li><Link href="#">Advanced UI/UX Design</Link></li>
+              <li><Link href="#">Frontend Development Essentials</Link></li>
+              <li><Link href="#">Freelancing for Designers</Link></li>
+            </ul>
+          </div>
+
+          {/* Free Resources */}
+          <div>
+            <h4 className="font-semibold mb-3">Free Resources</h4>
+            <ul className="space-y-2 text-gray-400">
+              <li><Link href="#">UI/UX Design Articles</Link></li>
+              <li><Link href="#">Free Design Templates</Link></li>
+              <li><Link href="#">Frontend Code Snippets</Link></li>
+              <li><Link href="#">Figma Components</Link></li>
+            </ul>
+          </div>
+
+          {/* Projects */}
+          <div>
+            <h4 className="font-semibold mb-3">Projects</h4>
+            <ul className="space-y-2 text-gray-400">
+              <li><Link href="#">Portfolio</Link></li>
+              <li><Link href="#">Case Studies</Link></li>
+              <li><Link href="#">Client Work</Link></li>
+              <li><Link href="#">Open Source Contributions</Link></li>
+            </ul>
+          </div>
+
+          {/* About */}
+          <div>
+            <h4 className="font-semibold mb-3">About</h4>
+            <ul className="space-y-2 text-gray-400">
+              <li><Link href="#">About Me</Link></li>
+              <li><Link href="#">My Journey</Link></li>
+              <li><Link href="#">Testimonials</Link></li>
+              <li><Link href="#">Contact</Link></li>
+              <li><Link href="#">Hire Me</Link></li>
+            </ul>
+          </div>
         </div>
 
-        <div>
-          <h4 className="font-semibold mb-3">UX Training</h4>
-          <ul className="space-y-2">
-            <li><Link href="#">All Live Courses</Link></li>
-            <li><Link href="#">Live Online Training Events</Link></li>
-            <li><Link href="#">Private Team Training</Link></li>
-            <li><Link href="#">Course Calendar</Link></li>
-          </ul>
+
+        {/* Bottom Bar */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 mt-10 gap-4 pt-6">
+          {/* Copyright */}
+          <p>© {new Date().getFullYear()} Muhammed Rafi. All Rights Reserved.</p>
+          
+          {/* Links */}
+          <div className="flex gap-4">
+            <Link href="#">Privacy Policy</Link>
+            <span>/</span>
+            <Link href="#">Terms of Service</Link>
+            <span>/</span>
+            <Link href="#">Contact</Link>
+          </div>
         </div>
 
-        <div>
-          <h4 className="font-semibold mb-3">Consulting</h4>
-          <ul className="space-y-2">
-            <li><Link href="#">Expert Review</Link></li>
-            <li><Link href="#">User Testing</Link></li>
-            <li><Link href="#">Customized Research</Link></li>
-            <li><Link href="#">Applied Workshops</Link></li>
-            <li><Link href="#">Keynote Speaking</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-semibold mb-3">Free Guidance</h4>
-          <ul className="space-y-2">
-            <li><Link href="#">Articles & Videos</Link></li>
-            <li><Link href="#">The NN/g UX Podcast</Link></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-semibold mb-3">About</h4>
-          <ul className="space-y-2">
-            <li><Link href="#">Why NN/g</Link></li>
-            <li><Link href="#">About Us</Link></li>
-            <li><Link href="#">People</Link></li>
-            <li><Link href="#">Clients</Link></li>
-            <li><Link href="#">Contact</Link></li>
-            <li><Link href="#">Return Policy</Link></li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-300 mt-10 gap-4">
-        <p>© 1998-2025 Nielsen Norman Group, All Rights Reserved.</p>
-        <div className="flex gap-4">
-          <Link href="#">Cookie Preferences</Link>
-          <span>/</span>
-          <Link href="#">Cookie Declaration</Link>
-          <span>/</span>
-          <Link href="#">Privacy Policy</Link>
-        </div>
-      </div>
     </footer>
   );
 }

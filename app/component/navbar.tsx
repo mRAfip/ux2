@@ -104,22 +104,22 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4 text-sm">
             <Link
               href="/pages/contact"
-              className="bg-[#3F2FEE] hover:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold flex items-center gap-2"
+              className="bg-gray-900 text-white px-4 py-2 rounded-full font-semibold flex items-center gap-2"
             >
               <UserPlus className="w-4 h-4" />
               Hire Me
             </Link>
 
 
-<Link
-  href="/Muhammed-Rafi-CV.pdf" // update with actual file path
-  target="_blank"
-  rel="noopener noreferrer"
-  className="border border-gray-600 text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white flex items-center gap-2"
->
-  <Download className="w-4 h-4" />
-  Download CV
-</Link>
+            <Link
+              href="/Muhammed-Rafi-CV.pdf" // update with actual file path
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-gray-600 text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white flex items-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              Download CV
+            </Link>
 
           </div>
 

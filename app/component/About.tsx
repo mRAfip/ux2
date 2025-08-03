@@ -51,7 +51,7 @@ const About = () => {
 
           <a
             href="/pages/contact"
-            className="inline-flex items-center gap-2 bg-[#3F2FEE] hover:bg-blue-700 text-white px-4 py-2 rounded-full font-semibold mt-4"
+            className="inline-flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-full font-semibold mt-4"
           >
             Let’s Collaborate <ExternalLink className="w-4 h-4" />
           </a>

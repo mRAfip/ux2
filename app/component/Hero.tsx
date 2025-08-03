@@ -72,7 +72,7 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 text-sm">
           <Link
             href="/pages/contact"
-            className="bg-[#3F2FEE] hover:bg-blue-600 text-white px-4 py-2 rounded-full font-semibold flex items-center gap-2"
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full font-semibold flex items-center gap-2"
           >
             <UserPlus className="w-4 h-4" />
             Hire Me

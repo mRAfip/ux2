@@ -2,7 +2,7 @@ import About from "./component/About";
 import Clients from "./component/Clients";
 import Hero from "./component/Hero";
 import Highlight from "./component/Highlights";
-import Services from "./component/Services";
+import Service from "./component/Services";
 import Tool from "./component/Tool";
 import Testimonial from "./component/Testimonial";
 import Workbook from "./component/Workbook";
@@ -17,7 +17,7 @@ export default function Home() {
       <About/>
       <Clients/>
       <Tool/>
-      <Services/>
+      <Service/>
       <Testimonial/>
       <Footer/>
       
