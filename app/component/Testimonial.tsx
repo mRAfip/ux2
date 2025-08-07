@@ -11,12 +11,12 @@ const testimonials = [
   {
     company: 'Blend-Ed Calicut',
     quote: '“Muhammed Rafi’s UI/UX work on our projects, especially Blend-ed (Open edX LMS), helped us gain recognition in the Open edX Community. His direct collaboration with the Open edX UI/UX team and consistent design support made a real difference.”',
-    name: 'Adel ',
+    name: 'Adel',
     role: 'Project Manager',
   },
   {
     company: 'XandY.',
-    quote: '“Muhammed Rafi played a key role in designing our company website for Xandy Learnings, focused on K–12 education. ”',
+    quote: '“Muhammed Rafi played a key role in designing our company website for Xandy Learnings, focused on K–12 education.”',
     name: 'Ajmal',
     role: 'CEO',
   },
@@ -50,14 +50,13 @@ export default function Highlights() {
   const swiperRef = useRef<any>(null);
 
   return (
-    <section className="w-full py-16 bg-black text-white">
+    <section className="w-full py-16 bg-white text-black">
       {/* Section Heading */}
       <div className="max-w-7xl mx-auto px-4 mb-10">
-
-       <div className="mb-6 text-md tracking-wider text-gray-400 uppercase">
-              <span className="text-[#FF531A] font-bold">05</span> / TESTIMONIALS
-         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-50">
+        <div className="mb-6 text-md tracking-wider text-gray-500 uppercase">
+          <span className="text-[#FF531A] font-bold">05</span> / TESTIMONIALS
+        </div>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
           Real Results. Real Feedback.
         </h2>
       </div>
@@ -77,18 +76,26 @@ export default function Highlights() {
         >
           {testimonials.map((item, index) => (
             <SwiperSlide key={index} className="!h-auto !w-auto">
-              <div className="h-[440px] max-w-[350px] bg-[#1a1a1a] rounded-xl border border-[#2a2a2a] p-6 flex flex-col justify-between shadow-md hover:bg-[#1a1a1a] transition">
+              <div className="h-[440px] max-w-[350px] bg-white border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition">
                 <p className="text-sm text-gray-500 mb-2">{item.company}</p>
-                <blockquote className="text-xl font-medium text-gray-300 mb-6 leading-relaxed">
+                <blockquote className="text-lg font-medium text-gray-800 mb-6 leading-relaxed">
                   {item.quote.split(' ').map((word, i) => {
-                    if (['reliable', 'truly', 'impressive'].includes(word.toLowerCase().replace(/[^a-z]/gi, ''))) {
-                      return <strong key={i} className="text-gray-50">{word} </strong>;
+                    if (
+                      ['reliable', 'truly', 'impressive'].includes(
+                        word.toLowerCase().replace(/[^a-z]/gi, '')
+                      )
+                    ) {
+                      return (
+                        <strong key={i} className="text-black">
+                          {word}{' '}
+                        </strong>
+                      );
                     }
                     return word + ' ';
                   })}
                 </blockquote>
                 <div className="mt-auto">
-                  <p className="font-semibold text-gray-50">{item.name}</p>
+                  <p className="font-semibold text-gray-900">{item.name}</p>
                   <p className="text-sm text-gray-500">{item.role}</p>
                 </div>
               </div>
@@ -100,13 +107,13 @@ export default function Highlights() {
         <div className="flex items-center justify-end mt-10 gap-3">
           <button
             onClick={() => swiperRef.current?.slidePrev()}
-            className="w-[50px] h-[50px] bg-[#1a1a1a] rounded-full flex items-center justify-center text-gray-400 hover:bg-[#222] hover:text-white transition"
+            className="w-[50px] h-[50px] bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 hover:text-black transition"
           >
             <ChevronLeft size={24} />
           </button>
           <button
             onClick={() => swiperRef.current?.slideNext()}
-            className="w-[50px] h-[50px] bg-[#1a1a1a] rounded-full flex items-center justify-center text-gray-400 hover:bg-[#222] hover:text-white transition"
+            className="w-[50px] h-[50px] bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 hover:text-black transition"
           >
             <ChevronRight size={24} />
           </button>
