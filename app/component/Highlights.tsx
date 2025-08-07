@@ -95,7 +95,7 @@ export default function ProjectsSwiper() {
             : projects.map((project) => (
                 <SwiperSlide key={project.id} className="!h-auto">
                   <Link href={`/project/${project.id}`}>
-                    <div className="w-full rounded-md bg-white overflow-hidden transition-all shadow hover:shadow-lg">
+                    <div className="w-full rounded-md bg-white overflow-hidden transition-all">
                       <div className="relative w-full aspect-[3/4]">
                         <Image
                           src={project.image_url || '/placeholder.jpg'}

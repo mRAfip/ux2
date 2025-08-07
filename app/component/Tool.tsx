@@ -23,7 +23,7 @@ import {
   SiTypescript,
   SiNotion,
   SiAdobexd,
-  SiVscodium, // ✅ Replaces SiVisualstudiocode
+  SiVscodium,
 } from 'react-icons/si';
 
 import {
@@ -82,15 +82,14 @@ const trainingTools: Tool[] = [
 
 export default function Tool() {
   return (
-    <section className="bg-black text-white py-28">
+    <section className="bg-white text-black py-28">
       <div className="max-w-7xl mx-auto px-4">
-
         {/* Section Header */}
-        <div className="mb-10 border-b-1 border-gray-500 py-6">
-          <div className="mb-4 text-sm tracking-widest text-gray-400 uppercase">
+        <div className="mb-10 border-b border-gray-200 py-6">
+          <div className="mb-4 text-sm tracking-widest text-gray-600 uppercase">
             <span className="text-[#FF531A] font-bold">04</span> / WHAT I USE EVERYDAY
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight text-black">
             Shaping Ideas with the Right Tools & Techniques
           </h2>
         </div>
@@ -104,17 +103,17 @@ export default function Tool() {
           { title: 'Training & Consultation', tools: trainingTools },
         ].map((section, i) => (
           <div key={i} className="mt-16">
-            <h5 className="text-lg text-gray-600 mb-6">{section.title}</h5>
+            <h5 className="text-lg text-gray-800 mb-6 font-semibold">{section.title}</h5>
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {section.tools.map((tool, index) => (
                 <div
                   key={index}
-                  className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-md px-6 py-5 flex items-center gap-4 hover:bg-[#252525] transition"
+                  className="bg-white border border-gray-200 rounded-md px-6 py-5 flex items-center gap-4 hover:bg-gray-100 transition"
                 >
-                  <tool.icon className="text-white text-2xl shrink-0" />
+                  <tool.icon className="text-[#333] text-2xl shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-white">{tool.name}</h4>
-                    <p className="text-sm text-gray-400">{tool.description}</p>
+                    <h4 className="font-semibold text-black">{tool.name}</h4>
+                    <p className="text-sm text-gray-600">{tool.description}</p>
                   </div>
                 </div>
               ))}
