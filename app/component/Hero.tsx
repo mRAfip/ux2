@@ -33,7 +33,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="w-full flex flex-col items-center justify-start bg-white pt-40 pb-12 px-4 relative overflow-hidden">
+    <section className="w-full flex flex-col items-center justify-start bg-white h-screen pt-60 px-4 relative overflow-hidden">
       <div className="flex px-6 flex-col w-full max-w-7xl mx-auto z-10 text-center md:text-left">
         <h1
           className="text-4xl md:text-9xl font-extrabold mb-6 tracking-tight leading-tight text-transparent bg-clip-text animate-gradient"
@@ -94,7 +94,7 @@ const Hero = () => {
         </p>
 
                 {/* GSAP-powered Logo Ticker */}
-        <div className="overflow-hidden w-full mt-4">
+        {/* <div className="overflow-hidden w-full mt-4">
           <div
             className="flex gap-10 grayscale opacity-50 w-max"
             ref={tickerRef}
@@ -110,7 +110,7 @@ const Hero = () => {
               />
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div className="flex flex-col md:flex-row items-center gap-4 text-sm justify-center md:justify-start mt-9">
           <Link

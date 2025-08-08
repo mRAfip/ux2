@@ -114,7 +114,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4 text-sm">
             <Link
               href="/pages/contact"
-              className="bg-gray-900 text-white px-4 py-2 rounded-full font-semibold flex items-center gap-2"
+              className="bg-[#66141A] text-white px-4 py-2 rounded-full font-semibold flex items-center gap-2"
             >
               <UserPlus className="w-4 h-4" />
               Hire Me
