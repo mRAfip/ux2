@@ -93,15 +93,15 @@ export default function ProjectsSwiper() {
                 </SwiperSlide>
               ))
             : projects.map((project) => (
-                <SwiperSlide key={project.id} className="!h-auto">
+                <SwiperSlide key={project.id} className="!h-auto ">
                   <Link href={`/project/${project.id}`}>
-                    <div className="w-full rounded-md bg-white overflow-hidden transition-all">
-                      <div className="relative w-full aspect-[3/4]">
+                    <div className="w-full rounded-4xl bg-white overflow-hidden transition-all">
+                      <div className="relative w-full aspect-[2.5/4]">
                         <Image
                           src={project.image_url || '/placeholder.jpg'}
                           alt={project.project_name}
                           fill
-                          className="object-cover rounded-md"
+                          className="object-cover rounded-4xl"
                         />
                       </div>
                       <div className="py-3 px-3">
