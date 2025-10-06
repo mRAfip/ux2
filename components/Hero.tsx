@@ -8,7 +8,7 @@
 
     const Hero = () => {
       return (
-        <section className="w-full py-24 relative overflow-hidden bg-white">
+        <section className="w-full h-[90vh] relative overflow-hidden bg-white">
           {/* Content Container */}
           <div className="max-w-7xl mx-auto px-6 h-full">
             <div className="grid lg:grid-cols-2 gap-12 pt-48">

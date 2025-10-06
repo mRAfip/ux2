@@ -40,7 +40,7 @@ const ServicesSection: FC = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div key={index} className="bg-white border border-gray-100 rounded-2xl">
               <CardContent className="p-8 flex flex-col items-center text-center space-y-6">
                 <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center">
                   {service.icon}
@@ -48,7 +48,7 @@ const ServicesSection: FC = () => {
                 <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{service.description}</p>
               </CardContent>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
