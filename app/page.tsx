@@ -1,13 +1,13 @@
-import About from "./component/About";
-import Clients from "./component/Clients";
-import Hero from "./component/Hero";
-import Service from "./component/service";
-import Highlight from "./component/Highlights";
-import Services from "./component/Services";
-import Tool from "./component/Tool";
-import Testimonial from "./component/Testimonial";
-import Workbook from "./component/Workbook";
-import Footer from "./component/Footer";
+import About from "../components/About";
+import Clients from "../components/Clients";
+import Hero from "../components/Hero";
+import Service from "../components/service";
+import Highlight from "../components/Highlights";
+import Services from "../components/Services";
+import Tool from "../components/Tool";
+import Testimonial from "../components/Testimonial";
+import Workbook from "../components/Workbook";
+import Footer from "../components/Footer";
 
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
     <main>
       <Hero />
       <Service />
-      <Highlight/>
+      {/* <Highlight/> */}
       <About/>
       <Clients/>
       <Tool/>
