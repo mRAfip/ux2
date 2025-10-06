@@ -3,6 +3,7 @@ import Clients from "../components/Clients";
 import Hero from "../components/Hero";
 import TrustedBy from "../components/TrustedBy";
 import Service from "../components/service";
+import WebDesignService from "../components/WebDesignService";
 import Highlight from "../components/Highlights";
 import Services from "../components/Services";
 import Tool from "../components/Tool";
@@ -19,6 +20,8 @@ export default function Home() {
       <TrustedBy />
       <SimpleTestimonial/>
       <Service />
+      <WebDesignService />
+      
       {/* <Highlight/> */}
       <About/>
       <Clients/>
