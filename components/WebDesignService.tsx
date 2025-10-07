@@ -88,7 +88,7 @@ const WebDesignService: FC = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="">
           {/* Left Column - Animated Layered Cards */}
           <div className="relative">
             <div className="relative h-96">
@@ -140,68 +140,8 @@ const WebDesignService: FC = () => {
               ))}
             </div>
             
-            {/* Click me indicator */}
-            <div className="absolute -top-8 -right-8 text-sm text-gray-500 font-medium animate-bounce">
-              click me!
-            </div>
           </div>
 
-          {/* Right Column - Bottom Rectangle with Web UIs */}
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-lg p-8">
-            <div className="space-y-8">
-              {/* Main Content */}
-              <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                  Better data, more wins.
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Access our top-quality database and watch your conversion rates soar. 
-                  Our clients see a 50% reduction in bounce rates and a 5x increase in 
-                  interest rates within the first month.
-                </p>
-              </div>
-
-              {/* Interactive Search Section */}
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">
-                    How would you describe your ideal customer?
-                  </h4>
-                  
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Describe your ideal customer..."
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-sm text-gray-600 mb-4">Suggestions tailored just for you</p>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {suggestions.map((suggestion, index) => (
-                      <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow duration-200">
-                        <CardContent className="p-4">
-                          <div className={`h-2 w-full bg-gradient-to-r ${suggestion.gradient} rounded-full mb-3`}></div>
-                          <h5 className="font-semibold text-gray-900 text-sm mb-2">
-                            {suggestion.title}
-                          </h5>
-                          <p className="text-xs text-gray-600">
-                            {suggestion.description}
-                          </p>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
