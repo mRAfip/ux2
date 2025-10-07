@@ -22,7 +22,7 @@
         ];
 
          return (
-             <section className="w-full py-16 bg-white">
+             <section className="w-full pt-36 pb-24 bg-gray-950">
              <style jsx>{`
                  @keyframes scroll {
                      0% {
@@ -39,7 +39,7 @@
              <div className="max-w-7xl mx-auto px-6">
                 {/* Header text */}
                 <div className="text-center mb-8">
-                        <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-4">
+                        <h2 className="text-sm font-bold text-white uppercase tracking-wide mb-4">
                             Trusted by more than 300,000 leading GTM teams of all sizes
                         </h2>
                         
@@ -75,7 +75,7 @@
                                      alt={`${company.name} logo`}
                                      width={120}
                                      height={40}
-                                     className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-300"
+                                     className="h-8 w-auto grayscale brightness-100 hover:grayscale-0 hover:brightness-100 transition-all duration-300"
                                  />
                              </div>
                          ))}
@@ -87,7 +87,7 @@
                                      alt={`${company.name} logo`}
                                      width={120}
                                      height={40}
-                                     className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-300"
+                                     className="h-8 w-auto grayscale brightness-100 hover:grayscale-0 hover:brightness-100 transition-all duration-300"
                                  />
                              </div>
                          ))}

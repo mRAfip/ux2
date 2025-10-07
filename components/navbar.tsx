@@ -38,28 +38,28 @@ export default function Navbar() {
   return (
     <nav
       className={`w-full fixed top-0 z-50 transition-shadow ${
-        scrolled ? "shadow-md bg-white" : "bg-white"
+        scrolled ? "shadow-md bg-gray-950" : "bg-gray-950"
       }`}
     >
       {/* Top Utility Bar */}
-      <div className="hidden md:block w-full border-b border-gray-100 z-50 relative bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-2 flex justify-between text-sm text-gray-600">
+      <div className="hidden md:block w-full border-b border-gray-600 z-50 relative bg-gray-950">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-2 flex justify-between text-sm text-white">
           {/* Left Side: Location + Contact Info */}
-          <div className="flex items-center space-x-6 text-sm text-gray-600">
+          <div className="flex items-center space-x-6 text-sm text-white">
             <div className="flex items-center gap-1">
               <MapPin className="w-4 h-4" />
               Kerala, India
             </div>
             <a
               href="mailto:work.rafipmkm@gmail.com"
-              className="hover:text-black flex items-center gap-1"
+              className="hover:text-white flex items-center gap-1"
             >
               <Mail className="w-4 h-4" />
               work.rafipmkm@gmail.com
             </a>
             <a
               href="tel:+917907977521"
-              className="hover:text-black flex items-center gap-1"
+              className="hover:text-white flex items-center gap-1"
             >
               <Phone className="w-4 h-4" />
               +91 79079 77521
@@ -67,12 +67,12 @@ export default function Navbar() {
           </div>
 
           {/* Right Side: Social Media Icons */}
-          <div className="flex items-center space-x-4 text-gray-600 text-sm">
+          <div className="flex items-center space-x-4 text-white text-sm">
             <a
               href="https://www.linkedin.com/in/pr-muhammed/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-black"
+              className="hover:text-white"
             >
               <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" />
             </a>
@@ -80,7 +80,7 @@ export default function Navbar() {
               href="https://www.instagram.com/therafitalks/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-black"
+              className="hover:text-white"
             >
               <FontAwesomeIcon icon={faInstagram} className="w-5 h-5" />
             </a>
@@ -88,7 +88,7 @@ export default function Navbar() {
               href="https://www.youtube.com/@muhammed_mukkam"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-black"
+              className="hover:text-white"
             >
               <FontAwesomeIcon icon={faYoutube} className="w-5 h-5" />
             </a>
@@ -96,7 +96,7 @@ export default function Navbar() {
               href="https://x.com/ux_rafi"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-black"
+              className="hover:text-white"
             >
               <FontAwesomeIcon icon={faXTwitter} className="w-5 h-5" />
             </a>
@@ -107,7 +107,7 @@ export default function Navbar() {
       {/* Main Navigation Bar */}
       <div className="w-full relative z-40">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
-          <Link href="/" className="flex-shrink-0 text-black">
+          <Link href="/" className="flex-shrink-0 text-white">
             Muhammed Rafi
           </Link>
 
@@ -124,7 +124,7 @@ export default function Navbar() {
               href="/Muhammed-Rafi-CV.pdf" // update with actual file path
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-gray-600 text-gray-900 px-4 py-2 rounded-full hover:bg-gray-900 hover:text-white flex items-center gap-2"
+              className="border border-white text-white px-4 py-2 rounded-full hover:bg-white hover:text-black flex items-center gap-2"
             >
               <Download className="w-4 h-4" />
               Download CV
