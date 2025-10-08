@@ -11,7 +11,6 @@ import Testimonial from "../components/Testimonial";
 import Workbook from "../components/Workbook";
 import Footer from "../components/Footer";
 import SimpleTestimonial from "@/components/SimpleTestimonial";
-import BannerVideo from "@/components/BannerVideo";
 
 
 export default function Home() {
@@ -20,12 +19,12 @@ export default function Home() {
       <Hero />
       <TrustedBy />
       <SimpleTestimonial/>
-      <BannerVideo />
       <Service />
-      <WebDesignService />
+      {/* <WebDesignService /> */}
       
-      {/* <Highlight/> */}
-      <About/>
+      
+      <Highlight/>
+      {/* <About/> */}
       <Clients/>
       <Tool/>
       <Testimonial/>
